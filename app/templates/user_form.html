@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>{{ action }} User</h3>
+<form method="POST">
+  <div class="mb-3">
+    <label>Nama</label>
+    <input type="text" class="form-control" name="name" value="{{ user[1] if user else '' }}">
+  </div>
+  <div class="mb-3">
+    <label>Email</label>
+    <input type="email" class="form-control" name="email" value="{{ user[2] if user else '' }}">
+  </div>
+  <button class="btn btn-primary">{{ action }}</button>
+</form>
+{% endblock %}

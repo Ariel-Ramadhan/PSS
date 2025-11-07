@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>{{ action }} Produk</h3>
+<form method="POST">
+  <div class="mb-3">
+    <label>Nama</label>
+    <input type="text" class="form-control" name="name" value="{{ product[1] if product else '' }}">
+  </div>
+  <div class="mb-3">
+    <label>Harga</label>
+    <input type="number" class="form-control" name="price" value="{{ product[2] if product else '' }}">
+  </div>
+  <div class="mb-3">
+    <label>Stok</label>
+    <input type="number" class="form-control" name="stock" value="{{ product[3] if product else '' }}">
+  </div>
+  <button class="btn btn-primary">{{ action }}</button>
+</form>
+{% endblock %}

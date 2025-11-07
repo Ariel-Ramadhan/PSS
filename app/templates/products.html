@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Data Produk</h3>
+<a href="/products/add" class="btn btn-success mb-2">+ Tambah Produk</a>
+<table class="table table-striped">
+<tr><th>ID</th><th>Nama</th><th>Harga</th><th>Stok</th><th>Aksi</th></tr>
+{% for p in products %}
+<tr>
+<td>{{p[0]}}</td>
+<td>{{p[1]}}</td>
+<td>{{p[2]}}</td>
+<td>{{p[3]}}</td>
+<td>
+  <a href="/products/edit/{{p[0]}}" class="btn btn-warning btn-sm">Edit</a>
+  <a href="/products/delete/{{p[0]}}" class="btn btn-danger btn-sm" onclick="return confirm('Yakin hapus?')">Hapus</a>
+</td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}

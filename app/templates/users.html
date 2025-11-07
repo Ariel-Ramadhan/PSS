@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Data Users</h3>
+<a href="/users/add" class="btn btn-success mb-2">+ Tambah User</a>
+<table class="table table-striped">
+<tr><th>ID</th><th>Nama</th><th>Email</th><th>Aksi</th></tr>
+{% for u in users %}
+<tr>
+<td>{{u[0]}}</td>
+<td>{{u[1]}}</td>
+<td>{{u[2]}}</td>
+<td>
+  <a href="/users/edit/{{u[0]}}" class="btn btn-warning btn-sm">Edit</a>
+  <a href="/users/delete/{{u[0]}}" class="btn btn-danger btn-sm" onclick="return confirm('Yakin hapus?')">Hapus</a>
+</td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}
