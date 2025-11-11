@@ -5,17 +5,17 @@ from flask_mysqldb import MySQL
 app = Flask(__name__)
 app.secret_key = "ariel_secret"
 
-app.config['MYSQL_HOST'] = os.getenv('MYSQL_HOST', 'localhost')
+app.config['MYSQL_HOST'] = os.getenv('MYSQL_HOST', 'db')
 app.config['MYSQL_USER'] = os.getenv('MYSQL_USER', 'root')
-app.config['MYSQL_PASSWORD'] = os.getenv('MYSQL_PASSWORD', '')
+app.config['MYSQL_PASSWORD'] = os.getenv('MYSQL_PASSWORD', 'rootpass123')
 app.config['MYSQL_DB'] = os.getenv('MYSQL_DB', 'uts_flask')
 app.config['MYSQL_PORT'] = int(os.getenv('MYSQL_PORT', 3306))
 
 mysql = MySQL(app)
 
-@app.route('/')    
+@app.route('/')
 def home():
-    return render_template('dashboard.html') 
+    return render_template('dashboard.html')
 
 @app.route('/dashboard')
 def dashboard():
